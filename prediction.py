@@ -1,4 +1,3 @@
-# Starter code for CS 165B HW4
 import cv2
 from PIL import Image
 import os
@@ -19,21 +18,16 @@ from keras.callbacks import TensorBoard
 Implement the testing procedure here. 
 
 Inputs:
-    Unzip the hw4_test.zip and place the folder named "hw4_test" in the same directory of your "prediction.py" file, your "prediction.py" need to give the following required output.
-
+    After unzipping data.zip, run prediction.py with the two data sets in the same directory. 
 Outputs:
     A file named "prediction.txt":
-        * The prediction file must have 10000 lines because the testing dataset has 10000 testing images.
+        * The prediction file will have 10000 lines because the testing dataset has 10000 testing images.
         * Each line is an integer prediction label (0 - 9) for the corresponding testing image.
         * The prediction results must follow the same order of the names of testing images (0.png – 9999.png).
-    Notes: 
-        1. The teaching staff will run your "prediction.py" to obtain your "prediction.txt" after the competition ends.
-        2. The output "prediction.txt" must be the same as the final version you submitted to the CodaLab, 
-        otherwise you will be given 0 score for your hw4.
 """
 x_train = []
 y_train = []
-directory = './hw4_train'
+directory = './train_set'
 classes = ['T_shirt/Tops', 'Trousers', 'Pullovers', 'Dresses', 'Coats', 'Sandals', 'Shirts', 
             'Sneakers', 'Bags', 'Ankle Boots']
 
@@ -58,7 +52,7 @@ y_train = np.array(y_train)
 
 # populate x_test with testing data
 x_test = []
-curPath = './hw4_test'
+curPath = './test_set'
 # test loop must be hardcoded to image names, because order of images in directory matters
 for i in range(len(os.listdir(curPath))-1):
     picPath = curPath + "/" + str(i) + ".png"
